@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - "master"
+env:
+  HOST_URL: https://waronkhoff.github.io/mfe_wmf_host
+  HEADER_URL: https://waronkhoff.github.io/mfe_wmf_header
 
 jobs:
   build:
@@ -20,8 +23,8 @@ jobs:
       - name: Install and build
         run: npm install && npm run build
         env:
-          HOST_URL: ${{ vars.HOST_URL }}
-          HEADER_URL: ${{ vars.HEADER_URL }}
+          HOST_URL: ${{ env.HOST_URL }}
+          HEADER_URL: ${{ env.HEADER_URL }}
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
