@@ -19,6 +19,54 @@ eval("Promise.all(/*! import() */[__webpack_require__.e(\"vendors-node_modules_r
 
 /***/ }),
 
+/***/ "webpack/container/reference/dashboard":
+/*!******************************************************************************************!*\
+  !*** external "dashboard@https://waronkhoff.github.io/mfe_wmf_dashboard/remoteEntry.js" ***!
+  \******************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+var __webpack_error__ = new Error();
+module.exports = new Promise((resolve, reject) => {
+	if(typeof dashboard !== "undefined") return resolve();
+	__webpack_require__.l("https://waronkhoff.github.io/mfe_wmf_dashboard/remoteEntry.js", (event) => {
+		if(typeof dashboard !== "undefined") return resolve();
+		var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+		var realSrc = event && event.target && event.target.src;
+		__webpack_error__.message = 'Loading script failed.\n(' + errorType + ': ' + realSrc + ')';
+		__webpack_error__.name = 'ScriptExternalLoadError';
+		__webpack_error__.type = errorType;
+		__webpack_error__.request = realSrc;
+		reject(__webpack_error__);
+	}, "dashboard");
+}).then(() => (dashboard));
+
+/***/ }),
+
+/***/ "webpack/container/reference/details":
+/*!**************************************************************************************!*\
+  !*** external "details@https://waronkhoff.github.io/mfe_wmf_details/remoteEntry.js" ***!
+  \**************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+var __webpack_error__ = new Error();
+module.exports = new Promise((resolve, reject) => {
+	if(typeof details !== "undefined") return resolve();
+	__webpack_require__.l("https://waronkhoff.github.io/mfe_wmf_details/remoteEntry.js", (event) => {
+		if(typeof details !== "undefined") return resolve();
+		var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+		var realSrc = event && event.target && event.target.src;
+		__webpack_error__.message = 'Loading script failed.\n(' + errorType + ': ' + realSrc + ')';
+		__webpack_error__.name = 'ScriptExternalLoadError';
+		__webpack_error__.type = errorType;
+		__webpack_error__.request = realSrc;
+		reject(__webpack_error__);
+	}, "details");
+}).then(() => (details));
+
+/***/ }),
+
 /***/ "webpack/container/reference/header":
 /*!************************************************************************************!*\
   !*** external "header@https://waronkhoff.github.io/mfe_wmf_header/remoteEntry.js" ***!
@@ -257,6 +305,12 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 			],
 /******/ 			"webpack_container_remote_header_Header": [
 /******/ 				"webpack/container/remote/header/Header"
+/******/ 			],
+/******/ 			"webpack_container_remote_dashboard_Dashboard": [
+/******/ 				"webpack/container/remote/dashboard/Dashboard"
+/******/ 			],
+/******/ 			"webpack_container_remote_details_Details": [
+/******/ 				"webpack/container/remote/details/Details"
 /******/ 			]
 /******/ 		};
 /******/ 		var idToExternalAndNameMapping = {
@@ -269,6 +323,16 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 				"default",
 /******/ 				"./Header",
 /******/ 				"webpack/container/reference/header"
+/******/ 			],
+/******/ 			"webpack/container/remote/dashboard/Dashboard": [
+/******/ 				"default",
+/******/ 				"./Dashboard",
+/******/ 				"webpack/container/reference/dashboard"
+/******/ 			],
+/******/ 			"webpack/container/remote/details/Details": [
+/******/ 				"default",
+/******/ 				"./Details",
+/******/ 				"webpack/container/reference/details"
 /******/ 			]
 /******/ 		};
 /******/ 		__webpack_require__.f.remotes = (chunkId, promises) => {
@@ -361,6 +425,8 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 					register("react", "18.2.0", () => (__webpack_require__.e("vendors-node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! ./node_modules/react/index.js */ "./node_modules/react/index.js"))))));
 /******/ 					initExternal("webpack/container/reference/host");
 /******/ 					initExternal("webpack/container/reference/header");
+/******/ 					initExternal("webpack/container/reference/dashboard");
+/******/ 					initExternal("webpack/container/reference/details");
 /******/ 				}
 /******/ 				break;
 /******/ 			}
@@ -573,7 +639,7 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if(!/^webpack_(container_remote_header_Header|sharing_consume_default_react_react)$/.test(chunkId)) {
+/******/ 						if(/^(vendors\-node_modules_react((|\-dom)_index|_jsx\-runtime)_js|main|src_App_jsx)$/.test(chunkId)) {
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
 /******/ 							promises.push(installedChunkData[2] = promise);
