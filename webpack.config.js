@@ -11,7 +11,7 @@ const DETAILS_URL = process.env.DETAILS_URL || "http://localhost:3002"
 
 module.exports = (_, argv) => ({
 	output: {
-		publicPath: "http://localhost:8080/"
+		publicPath: HOST_URL
 	},
 	resolve: {
 		extensions: [".tsx", ".ts", ".jsx", ".js", ".json"]
