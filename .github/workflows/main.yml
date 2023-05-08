@@ -7,6 +7,8 @@ on:
 env:
   HOST_URL: https://waronkhoff.github.io/mfe_wmf_host
   HEADER_URL: https://waronkhoff.github.io/mfe_wmf_header
+  DASHBOARD_URL: https://waronkhoff.github.io/mfe_wmf_dashboard
+  DETAILS_URL: https://waronkhoff.github.io/mfe_wmf_details
 
 jobs:
   build:
@@ -25,6 +27,8 @@ jobs:
         env:
           HOST_URL: ${{ env.HOST_URL }}
           HEADER_URL: ${{ env.HEADER_URL }}
+          DASHBOARD_URL: ${{ env.DASHBOARD_URL }}
+          DETAILS_URL: ${{ env.DETAILS_URL }}
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
