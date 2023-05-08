@@ -49,9 +49,9 @@ module.exports = (_, argv) => ({
 			filename: "remoteEntry.js",
 			remotes: {
 				host: `host@${HOST_URL}/remoteEntry.js`,
-				header: `header@${HEADER_URL}/remoteEntry.js`
-				// dashboard: `dashboard@${DASHBOARD_URL}/remoteEntry.js`,
-				// details: `details@${DETAILS_URL}/remoteEntry.js`
+				header: `header@${HEADER_URL}/remoteEntry.js`,
+				dashboard: `dashboard@${DASHBOARD_URL}/remoteEntry.js`,
+				details: `details@${DETAILS_URL}/remoteEntry.js`
 			},
 			exposes: {
 				"./store": "./src/store"
