@@ -113,6 +113,30 @@ module.exports = new Promise((resolve, reject) => {
 	}, "host");
 }).then(() => (host));
 
+/***/ }),
+
+/***/ "webpack/container/reference/sidepanel":
+/*!******************************************************************************************!*\
+  !*** external "sidepanel@https://waronkhoff.github.io/mfe_wmf_sidepanel/remoteEntry.js" ***!
+  \******************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+var __webpack_error__ = new Error();
+module.exports = new Promise((resolve, reject) => {
+	if(typeof sidepanel !== "undefined") return resolve();
+	__webpack_require__.l("https://waronkhoff.github.io/mfe_wmf_sidepanel/remoteEntry.js", (event) => {
+		if(typeof sidepanel !== "undefined") return resolve();
+		var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+		var realSrc = event && event.target && event.target.src;
+		__webpack_error__.message = 'Loading script failed.\n(' + errorType + ': ' + realSrc + ')';
+		__webpack_error__.name = 'ScriptExternalLoadError';
+		__webpack_error__.type = errorType;
+		__webpack_error__.request = realSrc;
+		reject(__webpack_error__);
+	}, "sidepanel");
+}).then(() => (sidepanel));
+
 /***/ })
 
 /******/ 	});
@@ -301,7 +325,8 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 	(() => {
 /******/ 		var chunkMapping = {
 /******/ 			"src_App_jsx": [
-/******/ 				"webpack/container/remote/host/store"
+/******/ 				"webpack/container/remote/host/store",
+/******/ 				"webpack/container/remote/sidepanel/mountVueSidepanel"
 /******/ 			],
 /******/ 			"webpack_container_remote_header_Header": [
 /******/ 				"webpack/container/remote/header/Header"
@@ -318,6 +343,11 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 				"default",
 /******/ 				"./store",
 /******/ 				"webpack/container/reference/host"
+/******/ 			],
+/******/ 			"webpack/container/remote/sidepanel/mountVueSidepanel": [
+/******/ 				"default",
+/******/ 				"./mountVueSidepanel",
+/******/ 				"webpack/container/reference/sidepanel"
 /******/ 			],
 /******/ 			"webpack/container/remote/header/Header": [
 /******/ 				"default",
@@ -424,6 +454,7 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 					register("react-dom", "18.2.0", () => (Promise.all([__webpack_require__.e("vendors-node_modules_react-dom_index_js"), __webpack_require__.e("webpack_sharing_consume_default_react_react")]).then(() => (() => (__webpack_require__(/*! ./node_modules/react-dom/index.js */ "./node_modules/react-dom/index.js"))))));
 /******/ 					register("react", "18.2.0", () => (__webpack_require__.e("vendors-node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! ./node_modules/react/index.js */ "./node_modules/react/index.js"))))));
 /******/ 					initExternal("webpack/container/reference/host");
+/******/ 					initExternal("webpack/container/reference/sidepanel");
 /******/ 					initExternal("webpack/container/reference/header");
 /******/ 					initExternal("webpack/container/reference/dashboard");
 /******/ 					initExternal("webpack/container/reference/details");
