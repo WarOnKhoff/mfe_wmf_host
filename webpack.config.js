@@ -8,6 +8,7 @@ const HOST_URL = process.env.HOST_URL || "http://localhost:8080"
 const HEADER_URL = process.env.HEADER_URL || "http://localhost:3000"
 const DASHBOARD_URL = process.env.DASHBOARD_URL || "http://localhost:3001"
 const DETAILS_URL = process.env.DETAILS_URL || "http://localhost:3002"
+const SIDEPANEL_URL = process.env.SIDEPANEL_URL || "http://localhost:3003"
 
 module.exports = (_, argv) => ({
 	output: {
@@ -51,7 +52,8 @@ module.exports = (_, argv) => ({
 				host: `host@${HOST_URL}/remoteEntry.js`,
 				header: `header@${HEADER_URL}/remoteEntry.js`,
 				dashboard: `dashboard@${DASHBOARD_URL}/remoteEntry.js`,
-				details: `details@${DETAILS_URL}/remoteEntry.js`
+				details: `details@${DETAILS_URL}/remoteEntry.js`,
+				sidepanel: `sidepanel@${SIDEPANEL_URL}/remoteEntry.js`
 			},
 			exposes: {
 				"./store": "./src/store"

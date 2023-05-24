@@ -9,6 +9,7 @@ env:
   HEADER_URL: https://waronkhoff.github.io/mfe_wmf_header
   DASHBOARD_URL: https://waronkhoff.github.io/mfe_wmf_dashboard
   DETAILS_URL: https://waronkhoff.github.io/mfe_wmf_details
+  SIDEPANEL_URL: https://waronkhoff.github.io/mfe_wmf_sidepanel
 
 jobs:
   build:
@@ -29,6 +30,7 @@ jobs:
           HEADER_URL: ${{ env.HEADER_URL }}
           DASHBOARD_URL: ${{ env.DASHBOARD_URL }}
           DETAILS_URL: ${{ env.DETAILS_URL }}
+          SIDEPANEL_URL: ${{ env.SIDEPANEL_URL }}
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
